@@ -47,9 +47,9 @@ spring:
       # it can be set to any label, branch or commit of the configuration source Git repository
   datasource:
     type: com.zaxxer.hikari.HikariDataSource
-    url: jdbc:h2:file:./target/h2db/db/jhmsbe;DB_CLOSE_DELAY=-1
-    username: jhmsbe
-    password:
+    url: jdbc:postgresql://localhost:5432/jhmsbe
+    username: postgres
+    password: TPMaster_22
     hikari:
       poolName: Hikari
       auto-commit: false
@@ -58,7 +58,7 @@ spring:
       # disable spring boot built-in h2-console since we start it manually with correct configuration
       enabled: false
   jpa:
-    database-platform: tech.jhipster.domain.util.FixedH2Dialect
+    database-platform: tech.jhipster.domain.util.FixedPostgreSQL10Dialect
   liquibase:
     # Remove 'faker' if you do not want the sample data to be loaded automatically
     contexts: dev, faker
